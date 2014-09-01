@@ -14,24 +14,49 @@
  * @package WordPress
  */
 
+/* Lines Added By DP 9/1/2014 */
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
+define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME']);
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+
+if ($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
+    define('WP_ENV', 'development');
+} else {
+    define('WP_ENV', 'production');
+}
+
+// MySQL settings - You can get this info from your web host //
+if (WP_ENV == 'development') {
+    define('DB_NAME', 'ponderthisfamilydev');
+    define('DB_USER', 'root');
+    define('DB_PASSWORD', 'root');
+    define('DB_HOST', 'localhost');
+} else {
+    define('DB_NAME', 'ponderthisfamily');
+    define('DB_USER', 'root');
+    define('DB_PASSWORD', 'root');
+    define('DB_HOST', 'localhost');
+}
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+//define('DB_NAME', 'database_name_here');
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+//define('DB_USER', 'username_here');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+//define('DB_PASSWORD', 'password_here');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+//define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+//define('DB_CHARSET', 'utf8');
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+//define('DB_COLLATE', '');
 
 /**#@+
  * Authentication Unique Keys and Salts.
